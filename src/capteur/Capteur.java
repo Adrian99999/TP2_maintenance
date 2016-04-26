@@ -1,5 +1,8 @@
 package capteur;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Capteur {
 	private String temps;
 	private String temperature;
@@ -19,7 +22,8 @@ public class Capteur {
 	}
 
 	public String getTemperature() {
-		return temperature;
+		NumberFormat formatter = new DecimalFormat("#0.00");
+		return formatter.format(Math.random() * 100 + 1);
 	}
 
 	public void setTemperature(String temperature) {
@@ -41,5 +45,4 @@ public class Capteur {
 	public void setAlerte(String alerte) {
 		this.alerte = alerte;
 	}
-
 }

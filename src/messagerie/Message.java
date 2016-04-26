@@ -1,6 +1,6 @@
 package messagerie;
 
 public interface Message {
-	public void creeMSG();
+	public String creeMSG();
 	public void validerMSG();
 }

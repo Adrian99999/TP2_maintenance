@@ -9,8 +9,8 @@ public class MsgGratuit implements Message{
 	
 
 	@Override
-	public void creeMSG() {
-		// TODO Auto-generated method stub
+	public String creeMSG() {
+		return "";
 		
 	}
 

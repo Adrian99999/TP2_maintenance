@@ -6,8 +6,8 @@ public class NotificationPaie implements Message{
 	
 
 	@Override
-	public void creeMSG() {
-		// TODO Auto-generated method stub
+	public String creeMSG() {
+		return "";
 		
 	}
 

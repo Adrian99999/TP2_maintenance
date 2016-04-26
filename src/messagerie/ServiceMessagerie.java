@@ -18,11 +18,12 @@ public class ServiceMessagerie {
 			case "temperature":
 				infosRecu = (String[]) infos.get(0);
 				String temp = (String) infos.get(1);
-				return new Alerte(infosRecu[0], infosRecu[1], infosRecu[2], infosRecu[3], temp);
-		case "absence":
+				return new Alerte(infosRecu[0], infosRecu[3], temp);
+			case "absence":
 				infosRecu = (String[]) infos.get(0);
+				@SuppressWarnings("unchecked")
 				ArrayList<String> liste = (ArrayList<String>) infos.get(1);
-				return new Absence(infosRecu[0], infosRecu[1], null, infosRecu[3], liste);
+				return new Absence(infosRecu[0], infosRecu[3], liste);
 			case "message":
 				break;
 				
@@ -31,7 +32,7 @@ public class ServiceMessagerie {
 		return null;
 	}
 	
-	public void validerFormat(String texteSaisie) {
+	public void validerMessage(String texteSaisie) {
 		String[] converti = texteSaisie.split(" ");
 		
 		if(converti.length == 4) {
@@ -46,9 +47,7 @@ public class ServiceMessagerie {
 						liste.add(converti);
 						liste.add(temp);						
 						message = this.getMSG("temperature", liste);
-						System.out.println(message.creeMSG());
-						obs.afficherMessage();
-						
+						obs.afficherMessage(message.creeMSG());	
 					}
 					break;
 				case "VerfAbs":
@@ -60,34 +59,26 @@ public class ServiceMessagerie {
 						liste.add(converti);
 						liste.add(listeAbsence);						
 						message = this.getMSG("absence", liste);
-						System.out.println(message.creeMSG());
-						obs.afficherMessage();
-						
+						obs.afficherMessage(message.creeMSG());
 					}
+					break;
+			} 
 				
-					
-					break;
-				default:
-					if (converti[2].matches("\\d{10}")) {
-						System.out.println("msg");
-					}
-					break;
+		} else if(converti.length > 4){
+			if(validerUser(converti[0])) {
+				if(converti[2].matches("\\d{10}"))
+					obs.afficherMessage("Message envoyé");
 			}
-
 		}
 		
-		
+	}
+	
+	public boolean validerUser(String nomUser) {
+		return (nomUser.startsWith("S") || nomUser.startsWith("R") || nomUser.startsWith("E"));
 	}
 	
 	public void addObservateur(InterfaceMessagerie obs) {
 		this.obs = obs;
-	}
-	
-	public static void main(String[] args) {
-		ServiceMessagerie ser = new ServiceMessagerie();
-		ser.validerFormat("R001 11111 VerfTemp C123");
-		ser.validerFormat("S001 11111 VerfAbs Jour");
-		
 	}
 	
 }

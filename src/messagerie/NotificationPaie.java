@@ -11,10 +11,4 @@ public class NotificationPaie implements Message{
 		
 	}
 
-	@Override
-	public void validerMSG() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

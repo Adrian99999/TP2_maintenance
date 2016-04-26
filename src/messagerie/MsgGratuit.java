@@ -14,10 +14,4 @@ public class MsgGratuit implements Message{
 		
 	}
 
-	@Override
-	public void validerMSG() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

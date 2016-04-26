@@ -4,16 +4,12 @@ import java.util.ArrayList;
 
 public class Absence implements Message{
 	private String idSup;
-	private String passwordSup;
-	private String idService; 
-	private String idSousService;
+	private String periode;
 	private ArrayList<String> listeAbsent;
 	
-	public Absence(String idSup, String password, String idService, String idSubService, ArrayList<String> liste) {
+	public Absence(String idSup, String periode, ArrayList<String> liste) {
 		this.idSup = idSup;
-		this.passwordSup = password;
-		this.idService = idService;
-		this.idSousService = idSubService;
+		this.periode = periode;
 		this.listeAbsent = liste;
 	}
 	
@@ -25,11 +21,6 @@ public class Absence implements Message{
 			absents += listeAbsent.get(i) + " ";
 		}
 		
-		return "Superviseur "+ idSup +", voici les absents du service " +" : "+ absents+ ". Bonne Journée!";
-	}
-	@Override
-	public void validerMSG() {
-		// TODO Auto-generated method stub
-		
+		return "Superviseur "+ idSup +", voici les absents pour la période de "+ periode +" : "+ absents+ ". Bonne Journée!";
 	}
 }

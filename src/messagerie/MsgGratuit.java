@@ -1,22 +1,23 @@
 package messagerie;
 
-import java.util.Date;
-
-public class Alerte implements Message{
+public class MsgGratuit implements Message{
 	
-	private String idResp;
-	private String passwordResp;
-	private String idService;
-	private Date temps;
+	private String idEmp;
+	private String passwordEmp;
+	private String telephoneAmi;
+	private String textMessage;
+	
+
 	@Override
 	public void creeMSG() {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public void validerMSG() {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

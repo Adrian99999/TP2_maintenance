@@ -3,6 +3,8 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import capteur.Capteur;
+import capteur.ControleurCapteur;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,11 +27,11 @@ public class FXMLControlleur implements Initializable, InterfaceMessagerie{
     @FXML
     private TextArea txtRecu;
     
-    ServiceMessagerie serviceMessage = new ServiceMessagerie();
-    
+    private ServiceMessagerie serviceMessage = new ServiceMessagerie();
+  
     void verifierSiVide(){
     	if (txtEnvoi.getLength()!=0){
-    		serviceMessage.validerMessage(txtEnvoi.getText());
+    		serviceMessage.traiterMessage(txtEnvoi.getText());
     	}
     }
     

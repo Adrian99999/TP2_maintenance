@@ -2,6 +2,8 @@ package messagerie;
 
 import java.util.ArrayList;
 
+import employe.Employe;
+
 public class Absence implements Message{
 	private String idSup;
 	private String periode;
@@ -18,9 +20,10 @@ public class Absence implements Message{
 		String absents = "";
 		
 		for(int i = 0; i < listeAbsent.size(); i++) {
-			absents += listeAbsent.get(i) + " ";
+			absents += listeAbsent.get(i) + "\n";
 		}
 		
-		return "Superviseur "+ idSup +", voici les absents pour la période de "+ periode +" : "+ absents+ ". Bonne Journée!";
+		return "Absence de la periode "
+				+ "." + periode + " :\n"+ absents+ " \nBonne Journée!";
 	}
 }

@@ -9,6 +9,10 @@ public class Capteur {
 	private String idChaudiere;
 	private String alerte;
 
+	public Capteur(String idChaudiere) {
+		this.idChaudiere = idChaudiere;
+	}
+	
 	private void envoyerAlert() {
 
 	}

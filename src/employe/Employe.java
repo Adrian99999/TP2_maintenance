@@ -4,6 +4,13 @@ public class Employe {
 	private String id;
 	private String prenom;
 	private String nom;
+	private String mtp;
+	
+	public Employe(String id, String prenom, String nom, String mtp) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
 
 	private void envoyerMsg() {
 	}
@@ -35,5 +42,15 @@ public class Employe {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public String getMtp() {
+		return mtp;
+	}
+
+	public void setMtp(String mtp) {
+		this.mtp = mtp;
+	}
+	
+	
 
 }

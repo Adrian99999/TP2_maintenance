@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 
 import capteur.Capteur;
+import capteur.ControleurCapteur;
+import employe.Employe;
+import employe.GestionEmploye;
 
 public class ServiceMessagerie {
 	
 	private Message message;
 	private InterfaceMessagerie obs = null;
+	private ControleurCapteur controlCapteur = new ControleurCapteur();
+	private GestionEmploye gestionEmp = new GestionEmploye();
 	
 	public Message getMSG(String typeMessage, ArrayList<Object> infos){
 		
@@ -22,8 +27,8 @@ public class ServiceMessagerie {
 			case "absence":
 				infosRecu = (String[]) infos.get(0);
 				@SuppressWarnings("unchecked")
-				ArrayList<String> liste = (ArrayList<String>) infos.get(1);
-				return new Absence(infosRecu[0], infosRecu[3], liste);
+				ArrayList<String> listeAbsent = (ArrayList<String>) infos.get(1);
+				return new Absence(infosRecu[0], infosRecu[3], listeAbsent);
 			case "message":
 				break;
 				
@@ -32,34 +37,37 @@ public class ServiceMessagerie {
 		return null;
 	}
 	
-	public void validerMessage(String texteSaisie) {
+	public void traiterMessage(String texteSaisie) {
 		String[] converti = texteSaisie.split(" ");
 		
 		if(converti.length == 4) {
 	
 			switch(converti[2]) {
 				case "VerfTemp":
-					if(converti[0].startsWith("R")) {
+					if(converti[0].startsWith("r")) {
+					
+						Capteur capteurDemande = controlCapteur.getCapteur(converti[3]);
+						if(capteurDemande != null) {
+							String temp = capteurDemande.getTemperature();
+							ArrayList<Object> liste = new ArrayList<>();
+							liste.add(converti);
+							liste.add(temp);						
+							message = this.getMSG("temperature", liste);
+							obs.afficherMessage(message.creeMSG());
+						}
 						
-						Capteur capteur = new Capteur();
-						String temp = capteur.getTemperature();
-						ArrayList<Object> liste = new ArrayList<>();
-						liste.add(converti);
-						liste.add(temp);						
-						message = this.getMSG("temperature", liste);
-						obs.afficherMessage(message.creeMSG());	
 					}
 					break;
 				case "VerfAbs":
-					if(converti[0].startsWith("S")) {
-						ArrayList<String> listeAbsence = new ArrayList<>();
-						listeAbsence.add("E002");
-						listeAbsence.add("E015");
+					if(converti[0].startsWith("s")) {
+						
+						ArrayList<String> listeAbsence = gestionEmp.getListeAbsent();
 						ArrayList<Object> liste = new ArrayList<>();
 						liste.add(converti);
 						liste.add(listeAbsence);						
 						message = this.getMSG("absence", liste);
 						obs.afficherMessage(message.creeMSG());
+						
 					}
 					break;
 			} 
@@ -74,7 +82,7 @@ public class ServiceMessagerie {
 	}
 	
 	public boolean validerUser(String nomUser) {
-		return (nomUser.startsWith("S") || nomUser.startsWith("R") || nomUser.startsWith("E"));
+		return (nomUser.startsWith("s") || nomUser.startsWith("r") || nomUser.startsWith("e"));
 	}
 	
 	public void addObservateur(InterfaceMessagerie obs) {

@@ -11,7 +11,7 @@ public class Employe {
 		this.prenom = prenom;
 		this.nom = nom;
 	}
-
+	
 	private void envoyerMsg() {
 	}
 

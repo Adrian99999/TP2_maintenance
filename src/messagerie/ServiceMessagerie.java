@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import capteur.Capteur;
 import capteur.ControleurCapteur;
-import employe.Employe;
 import employe.GestionEmploye;
 
 public class ServiceMessagerie {
@@ -73,16 +72,18 @@ public class ServiceMessagerie {
 			} 
 				
 		} else if(converti.length > 4){
-			if(validerUser(converti[0])) {
+			//if(validerUser(converti[0])) {
 				if(converti[2].matches("\\d{10}"))
 					obs.afficherMessage("Message envoyé");
-			}
+			//}
 		}
 		
 	}
 	
-	public boolean validerUser(String nomUser) {
-		return (nomUser.startsWith("s") || nomUser.startsWith("r") || nomUser.startsWith("e"));
+	public boolean validerLogin(String nomUsager, String mtp) {
+
+		 // return gestionEmp.validerNomUsager(nomUsager) && gestionEmp.validerMtp(mtp);
+		return (nomUsager.startsWith("s") || nomUsager.startsWith("r") || nomUsager.startsWith("e"));
 	}
 	
 	public void addObservateur(InterfaceMessagerie obs) {

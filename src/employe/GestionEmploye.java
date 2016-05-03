@@ -35,4 +35,14 @@ public class GestionEmploye {
 		return listeEmploye;
 	}
 	
+	public boolean validerMtp(String motDePasse) {
+		return(motDePasse.matches("[]") && (motDePasse.length() >= 8 && motDePasse.length() <= 15));
+	} 
+	
+	public boolean validerNomUsager(String nomUsager) {
+		return (nomUsager.matches("") && nomUsager.length() == 10);
+	}
+	
+	
+	
 }

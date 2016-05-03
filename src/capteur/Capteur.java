@@ -3,6 +3,8 @@ package capteur;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import utils.ValiderId;
+
 public class Capteur {
 	private String temps;
 	private String temperature;
@@ -12,7 +14,7 @@ public class Capteur {
 	public Capteur(String idChaudiere) {
 		this.idChaudiere = idChaudiere;
 	}
-	
+
 	private void envoyerAlert() {
 
 	}
@@ -39,6 +41,7 @@ public class Capteur {
 	}
 
 	public void setIdChaudiere(String idChaudiere) {
+		assert (ValiderId.validerId(this.getClass().getName(), idChaudiere)) : ValiderId.messageErreur;
 		this.idChaudiere = idChaudiere;
 	}
 
@@ -49,4 +52,5 @@ public class Capteur {
 	public void setAlerte(String alerte) {
 		this.alerte = alerte;
 	}
+
 }

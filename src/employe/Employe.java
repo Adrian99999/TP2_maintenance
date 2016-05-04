@@ -12,6 +12,7 @@ public class Employe {
 		setId(id);
 		this.prenom = prenom;
 		this.nom = nom;
+		this.mtp = mtp;
 	}
 	
 	private void envoyerMsg() {
@@ -56,7 +57,7 @@ public class Employe {
 	}
 
 	public static void main(String[] args) {
-		Employe em = new Employe("E2016aa11", "fsdf", "fsd", "fsdf");
+		//Employe em = new Employe("E2016aa11", "fsdf", "fsd", "fsdf");
 
 		// System.out.println(em.getId());
 	}

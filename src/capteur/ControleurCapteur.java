@@ -23,15 +23,15 @@ public class ControleurCapteur {
 	public Capteur getCapteur(String idChaudiere) {
 		Capteur capteur = null;
 		
-		if(validerIdChaudiere(idChaudiere)) {
+//TODO		if(validerIdChaudiere(idChaudiere)) {
 			capteur = listeCapteur.get(idChaudiere);
-		}
+		//}
 		
 		return capteur;
 	}
 	
-	public boolean validerIdChaudiere(String idChaudiere) {
-		
+/*	public boolean validerIdChaudiere(String idChaudiere) {
+
 		return (idChaudiere.matches("") && idChaudiere.length() == 10);
-	}
+	}*/
 }

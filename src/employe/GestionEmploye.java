@@ -39,13 +39,25 @@ public class GestionEmploye {
 		return listeEmploye;
 	}
 	
-	public boolean validerLogin(String idUsager, String mtp) {
+	public boolean validerLogin(String nomClasse, String idUsager, String mtp) {
 		boolean loginValide = false;	
+		boolean idValide = Validation.validerId(nomClasse, idUsager);
+		boolean mtpValide = Validation.validerMtp(mtp);
 		
-		if(listeEmploye.get(idUsager) != null) {
-			loginValide = mtp.equals(listeEmploye.get(idUsager).getMtp());
+		assert(idValide == true) : "GestionEmploye: L'id doit être valide";
+		assert(mtpValide == true) : "GestionEmploye: Le mtp doit être valide";
+		
+		if(idValide && mtpValide) {
+			if(listeEmploye.get(idUsager) != null) {
+				loginValide = mtp.equals(listeEmploye.get(idUsager).getMtp());
+			}
 		}
 		return loginValide;
+	}
+	
+	public static void main(String[] args) {
+		GestionEmploye gestEmp = new GestionEmploye();
+		gestEmp.validerLogin("employe.Superviseur", "Su20161234", "A!12nb12mn");
 	}
 		
 }

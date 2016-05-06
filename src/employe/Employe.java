@@ -57,13 +57,14 @@ public class Employe {
 	}
 
 	public void setMtp(String mtp) {
+		boolean mtpValide = Validation.validerMtp(mtp);
+		assert(mtpValide == true) : "Employe : Le mtp doit être valide";
 		this.mtp = mtp;
 	}
 	
 	
 	public static void main(String[] args) {
 		Employe emp = new Employe();
-		emp.setId("Em201602kd");
-
+		emp.setId("em201602kd");
 	}
 }

@@ -48,8 +48,7 @@ public class ServiceMessagerie {
 							liste.add(temp);						
 							message = this.getMSG("temperature", liste);
 							obs.afficherMessage(message.creeMSG());
-						}
-						
+						}	
 					}
 					break;
 				case "VerfAbs":
@@ -69,18 +68,16 @@ public class ServiceMessagerie {
 						obs.afficherMessage("Message envoyé");
 					break;
 				}
-			} 
-				
-		} /*else {
-			if(converti.length > 4 && (converti[2].matches("\\d{10}"))) {
-					obs.afficherMessage("Message envoyé");
-			}
-		}*/
+			} 	
+		} 
 	}
 	
 	private boolean formatMsgValide(String[] messageSepare) {
-		assert((messageSepare.length == 4) || ((messageSepare.length >= 4) && messageSepare[2].matches("\\d{10}")) == true) : "Le format doit être valide";
-		return ((messageSepare.length == 4) || ((messageSepare.length >= 4) && messageSepare[2].matches("\\d{10}")));
+		boolean formatValide = 
+				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
+				&& messageSepare[2].matches("\\d{10}"));
+		assert(formatValide == true) : "Le format doit être valide";
+		return formatValide;
 	}
 	
 	

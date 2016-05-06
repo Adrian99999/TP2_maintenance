@@ -40,17 +40,10 @@ public class GestionEmploye {
 	}
 	
 	public boolean validerLogin(String idUsager, String mtp) {
-		boolean loginValide = false;
-		boolean idValide = false;
-		boolean mtpValide = Validation.validerMtp(mtp);
+		boolean loginValide = false;	
 		
-		//assert idValide == true;
-		assert mtpValide == true;
-		
-		if(mtpValide) {
-			if(listeEmploye.get(idUsager) != null) {
-				loginValide = mtp.equals(listeEmploye.get(idUsager).getMtp());
-			}
+		if(listeEmploye.get(idUsager) != null) {
+			loginValide = mtp.equals(listeEmploye.get(idUsager).getMtp());
 		}
 		return loginValide;
 	}

@@ -6,10 +6,8 @@ public class Validation {
 	public static String messageErreur;
 
 	public static boolean validerId(String className, String id) {
-		System.out.println(className);
-
 		String classeNom = className.split("\\.")[1];
-		System.out.println(classeNom);
+
 		char[] arrayId = id.toCharArray();
 
 		boolean valide = false;
@@ -36,7 +34,7 @@ public class Validation {
 				messageErreur = "Le format de l'id n'est pas valide";
 			}
 		}
-		assert (valide == true) : "Erreur, le Id doit être vrai" ;
+		assert (valide == true) : "Erreur, le id doit être invalide" ;
 		return valide;
 	}
 	
@@ -46,7 +44,7 @@ public class Validation {
 		int nbChiffre = 0;
 		int longueur = 0;
 		
-		if(Character.isUpperCase(mtp.charAt(0))){
+		if((mtp.length() > 0) && Character.isUpperCase(mtp.charAt(0))){
 			longueur = mtp.length();
 			nbLettre = mtp.replaceAll("\\p{Punct}", "").replaceAll("\\d","").length();
 			nbspecialChar = mtp.replaceAll("\\w", "").length();
@@ -61,7 +59,7 @@ public class Validation {
 	
 	public static void main(String[] args) {
 		
-		Validation.validerId("jkjhhj.Superviseur", "Su2016d8e9");
+		Validation.validerId("employe.Superviseur", "Su2016d8e9");
 		Validation.validerMtp("A99!bn9899nfdnf");
 		
 	}

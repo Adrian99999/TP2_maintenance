@@ -12,7 +12,7 @@ public class Capteur {
 	private String alerte;
 
 	public Capteur(String idChaudiere) {
-		this.idChaudiere = idChaudiere;
+		this.setIdChaudiere(idChaudiere);
 	}
 
 	private void envoyerAlert() {
@@ -29,7 +29,8 @@ public class Capteur {
 
 	public String getTemperature() {
 		NumberFormat formatter = new DecimalFormat("#0.00");
-		return formatter.format(Math.random() * 100 + 1);
+		this.temperature = formatter.format(Math.random() * 100 + 1);
+		return temperature;
 	}
 
 	public void setTemperature(String temperature) {
@@ -41,7 +42,8 @@ public class Capteur {
 	}
 
 	public void setIdChaudiere(String idChaudiere) {
-		assert (Validation.validerId(this.getClass().getName(), idChaudiere)) : Validation.messageErreur;
+		boolean idValide = Validation.validerId(Capteur.getNomClasse(), idChaudiere);
+		assert(idValide == true) : "L'id doit être valide";
 		this.idChaudiere = idChaudiere;
 	}
 
@@ -51,6 +53,14 @@ public class Capteur {
 
 	public void setAlerte(String alerte) {
 		this.alerte = alerte;
+	}
+	
+	public static String getNomClasse() {
+		return "capteur.Chaudiere";
+	}
+	
+	public static void main(String[] args) {
+		Capteur capteur = new Capteur("Ch20161234");
 	}
 
 }

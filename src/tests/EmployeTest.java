@@ -17,10 +17,10 @@ public class EmployeTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		emp=new Employe();
-		vd=mock(Validation.class);
-		when (vd.validerId("employe.Employe","Em2016abcd")).thenReturn(true);
-		
+		emp = new Employe();
+		vd = mock(Validation.class);
+		when(vd.validerId("employe.Employe","Em2016abc")).thenReturn(false);
+		emp.setId("Em2016abc");
 	}
 
 	@After
@@ -29,8 +29,7 @@ public class EmployeTest {
 
 	@Test
 	public void testSetId1() {
-		/*assertTrue(emp.setId("Em2016abcd")=="Em2016abcd");*/
-		assertEquals(emp.getId(),"Em2016abcd");
+		assertEquals(null, emp.getId());
 	}
 
 }

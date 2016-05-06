@@ -12,7 +12,6 @@ public class SousService {
 	}
 
 	public void setIdSousService(String idSousService) {
-		assert (Validation.validerId(this.getClass().getName(), idSousService)) : Validation.messageErreur;
 		this.idSousService = idSousService;
 	}
 

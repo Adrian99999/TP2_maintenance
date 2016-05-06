@@ -7,15 +7,18 @@ public class Employe {
 	private String prenom;
 	private String nom;
 	private String mtp;
-	private String nomClasse="employe.Employe";
+	private Validation validator;
 
-	public Employe() {}
+	public Employe() {
+		validator = new Validation();
+	}
 	
 	public Employe(String id, String prenom, String nom, String mtp) {
-		setId(id);
+		validator = new Validation();
 		this.prenom = prenom;
 		this.nom = nom;
-		this.mtp = mtp;
+		setId(id);
+		setMtp(mtp);
 	}
 	
 	private void envoyerMsg() {
@@ -30,8 +33,8 @@ public class Employe {
 	}
 
 	public void setId(String id) {
-		boolean valide = Validation.validerId(this.getClass().getName(), id); 
-		assert(valide == true) : "Le id doit être valide";
+		boolean valide = validator.validerId(this.getNomClasse(), id); 
+		//assert(valide == true) : "Le id doit être valide";
 		if(valide) {
 			this.id = id;
 		}
@@ -58,8 +61,8 @@ public class Employe {
 	}
 
 	public void setMtp(String mtp) {
-		boolean mtpValide = Validation.validerMtp(mtp);
-		assert(mtpValide == true) : "Employe : Le mtp doit être valide";
+		boolean mtpValide = validator.validerMtp(mtp);
+		//assert(mtpValide == true) : "Employe : Le mtp doit être valide";
 		this.mtp = mtp;
 	}
 	
@@ -70,7 +73,9 @@ public class Employe {
 	}
 	
 	public String getNomClasse(){
-		return nomClasse;
+		return "employe.Employe";
 	}
+	
+	
 	
 }

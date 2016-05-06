@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Validation {
 	public static String messageErreur;
 
-	public static boolean validerId(String className, String id) {
+	public boolean validerId(String className, String id) {
 		String classeNom = className.split("\\.")[1];
 
 		char[] arrayId = id.toCharArray();
@@ -38,7 +38,7 @@ public class Validation {
 		return valide;
 	}
 	
-	public static boolean validerMtp(String mtp) {
+	public boolean validerMtp(String mtp) {
 		int nbLettre = 0;
 		int nbspecialChar = 0;
 		int nbChiffre = 0;
@@ -58,9 +58,9 @@ public class Validation {
 	}
 	
 	public static void main(String[] args) {
-		
-		Validation.validerId("employe.Superviseur", "Su2016d8e9");
-		Validation.validerMtp("A99!bn9899nfdnf");
+		Validation validator = new Validation();		
+		validator.validerId("employe.Superviseur", "Su2016d8e9");
+		validator.validerMtp("A99!bn9899nfdnf");
 		
 	}
 	

@@ -40,9 +40,10 @@ public class GestionEmploye {
 	}
 	
 	public boolean validerLogin(String nomClasse, String idUsager, String mtp) {
+		Validation validateur = new Validation();
 		boolean loginValide = false;	
-		boolean idValide = Validation.validerId(nomClasse, idUsager);
-		boolean mtpValide = Validation.validerMtp(mtp);
+		boolean idValide = validateur.validerId(nomClasse, idUsager);
+		boolean mtpValide = validateur.validerMtp(mtp);
 		
 		assert(idValide == true) : "GestionEmploye: L'id doit être valide";
 		assert(mtpValide == true) : "GestionEmploye: Le mtp doit être valide";

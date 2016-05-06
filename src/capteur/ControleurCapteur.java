@@ -7,7 +7,7 @@ import utils.Validation;
 public class ControleurCapteur {
 	
 	private HashMap<String, Capteur> listeCapteur = new HashMap<String, Capteur>();
-	
+
 	public ControleurCapteur() {
 		this.genererListeCapteurs();
 	}
@@ -21,8 +21,9 @@ public class ControleurCapteur {
 		}
 	}
 	
-	public Capteur getCapteur(String idChaudiere) {		
-		boolean idValide = Validation.validerId(Capteur.getNomClasse(), idChaudiere);
+	public Capteur getCapteur(String idChaudiere) {
+		Validation validator = new Validation();
+		boolean idValide = validator.validerId(Capteur.getNomClasse(), idChaudiere);
 		assert(idValide == false) : "Le id doit être invalide";
 		
 		Capteur capteur = null;	
@@ -34,6 +35,4 @@ public class ControleurCapteur {
 		ControleurCapteur cc = new ControleurCapteur();
 		cc.getCapteur("dssdds");
 	}
-	
-
 }

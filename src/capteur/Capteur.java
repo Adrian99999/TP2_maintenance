@@ -42,8 +42,9 @@ public class Capteur {
 	}
 
 	public void setIdChaudiere(String idChaudiere) {
-		boolean idValide = Validation.validerId(Capteur.getNomClasse(), idChaudiere);
-		assert(idValide == true) : "L'id doit être valide";
+		Validation validateur = new Validation();
+		boolean idValide = validateur.validerId(Capteur.getNomClasse(), idChaudiere);
+		assert(idValide == true) : "Capteur: L'id doit être valide";
 		this.idChaudiere = idChaudiere;
 	}
 
@@ -62,5 +63,5 @@ public class Capteur {
 	public static void main(String[] args) {
 		Capteur capteur = new Capteur("Ch20161234");
 	}
-
+	
 }

@@ -12,7 +12,6 @@ public class Service {
 	}
 
 	public void setIdService(String idService) {
-		assert (Validation.validerId(this.getClass().getName(), idService)) : Validation.messageErreur;
 		this.idService = idService;
 	}
 

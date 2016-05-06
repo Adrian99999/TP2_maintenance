@@ -34,7 +34,7 @@ public class Validation {
 				messageErreur = "Le format de l'id n'est pas valide";
 			}
 		}
-		assert (valide == true) : "Erreur, le id doit être invalide" ;
+		//assert (valide == true) : "Validation: le id doit être invalide" ;
 		return valide;
 	}
 	
@@ -50,9 +50,9 @@ public class Validation {
 			nbspecialChar = mtp.replaceAll("\\w", "").length();
 			nbChiffre = mtp.replaceAll("\\D", "").length();
 		}
-		assert(((longueur >= 8 && longueur <= 15) && 
+		/*assert(((longueur >= 8 && longueur <= 15) && 
 				(nbLettre >=2) && (nbspecialChar >=1) && 
-				(nbChiffre >=2)) == true) : "Le mot de passe doit être valide";
+				(nbChiffre >=2)) == true) : "Validation: Le mot de passe doit être valide";*/
 		
 		return ((longueur >= 8 && longueur <= 15) && (nbLettre >=2) && (nbspecialChar >=1) && (nbChiffre >=2));
 	}

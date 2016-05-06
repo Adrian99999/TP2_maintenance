@@ -16,7 +16,6 @@ public class Alerte implements Message{
 	@Override
 	public String creeMSG() {
 		return "Température de la chaudière "+ idChaudiere +" : " + temps + DEGREE + ". \nBonne Journée!";
-		
 	}
 
 }

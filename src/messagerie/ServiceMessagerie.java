@@ -38,7 +38,7 @@ public class ServiceMessagerie {
 	
 			switch(converti[2]) {
 				case "VerfTemp":
-					if((gestionEmp.validerLogin(converti[0], converti[1])) && (converti[0].startsWith("R"))) {
+					if((gestionEmp.validerLogin("employe.ResponsableChaudiere",converti[0], converti[1])) && (converti[0].startsWith("R"))) {
 						
 						Capteur capteurDemande = controlCapteur.getCapteur(converti[3]);
 						if(capteurDemande != null) {
@@ -52,7 +52,7 @@ public class ServiceMessagerie {
 					}
 					break;
 				case "VerfAbs":
-					if((gestionEmp.validerLogin(converti[0], converti[1])) && (converti[0].startsWith("S"))) {
+					if((gestionEmp.validerLogin("employe.Superviseur",converti[0], converti[1])) && (converti[0].startsWith("S"))) {
 						
 						ArrayList<String> listeAbsence = gestionEmp.getListeAbsent();
 						ArrayList<Object> liste = new ArrayList<>();
@@ -64,7 +64,7 @@ public class ServiceMessagerie {
 					}
 					break;
 				default: {
-					if(gestionEmp.validerLogin(converti[0], converti[1]))
+					if(gestionEmp.validerLogin("employe.Employe",converti[0], converti[1]))
 						obs.afficherMessage("Message envoyé");
 					break;
 				}
@@ -76,7 +76,7 @@ public class ServiceMessagerie {
 		boolean formatValide = 
 				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
 				&& messageSepare[2].matches("\\d{10}"));
-		assert(formatValide == true) : "Le format doit être valide";
+		assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
 		return formatValide;
 	}
 	

@@ -1,6 +1,6 @@
 package employe;
 
-import utils.ValiderId;
+import utils.Validation;
 
 public class Employe {
 	private String id;
@@ -8,6 +8,8 @@ public class Employe {
 	private String nom;
 	private String mtp;
 
+	public Employe() {}
+	
 	public Employe(String id, String prenom, String nom, String mtp) {
 		setId(id);
 		this.prenom = prenom;
@@ -27,9 +29,12 @@ public class Employe {
 	}
 
 	public void setId(String id) {
-		assert (ValiderId.validerId(this.getClass().getName(), id)) : ValiderId.messageErreur;
-		this.id = id;
-
+		//assert (Validation.validerId(this.getClass().getName(), id)) : Validation.messageErreur;
+		boolean valide = Validation.validerId("Employe", "iffikfdif");
+		if(valide) {
+			assert (valide) : "L'id n'est pas valide";
+			this.id = id;
+		}
 	}
 
 	public String getPrenom() {
@@ -55,10 +60,13 @@ public class Employe {
 	public void setMtp(String mtp) {
 		this.mtp = mtp;
 	}
-
+	
+	
 	public static void main(String[] args) {
+
 		//Employe em = new Employe("E2016aa11", "fsdf", "fsd", "fsdf");
 
 		// System.out.println(em.getId());
+			
 	}
 }

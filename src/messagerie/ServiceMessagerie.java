@@ -38,7 +38,6 @@ public class ServiceMessagerie {
 	
 			switch(converti[2]) {
 				case "VerfTemp":
-					System.out.println(converti[0]);
 					if((gestionEmp.validerLogin(converti[0], converti[1])) && (converti[0].startsWith("R"))) {
 						
 						Capteur capteurDemande = controlCapteur.getCapteur(converti[3]);

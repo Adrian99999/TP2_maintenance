@@ -3,6 +3,8 @@ package employe;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import utils.Validation;
+
 public class GestionEmploye {
 	
 	private ArrayList<String> listeAbsent = new ArrayList<String> ();
@@ -38,21 +40,19 @@ public class GestionEmploye {
 	}
 	
 	public boolean validerLogin(String idUsager, String mtp) {
-		boolean valide = false;
-		if(listeEmploye.get(idUsager) != null) {
-			valide = mtp.equals(listeEmploye.get(idUsager).getMtp());
+		boolean loginValide = false;
+		boolean idValide = false;
+		boolean mtpValide = Validation.validerMtp(mtp);
+		
+		//assert idValide == true;
+		assert mtpValide == true;
+		
+		if(mtpValide) {
+			if(listeEmploye.get(idUsager) != null) {
+				loginValide = mtp.equals(listeEmploye.get(idUsager).getMtp());
+			}
 		}
-		return valide;
+		return loginValide;
 	}
-	
-	/*public boolean validerMtp(String motDePasse) {
-		return(motDePasse.matches("") && (motDePasse.length() >= 8 && motDePasse.length() <= 15));
-	} 
-	
-	public boolean validerNomUsager(String nomUsager) {
-		return (nomUsager.matches("") && nomUsager.length() == 10);
-	}*/
-	
-	
-	
+		
 }

@@ -3,7 +3,7 @@ package capteur;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import utils.ValiderId;
+import utils.Validation;
 
 public class Capteur {
 	private String temps;
@@ -41,7 +41,7 @@ public class Capteur {
 	}
 
 	public void setIdChaudiere(String idChaudiere) {
-		assert (ValiderId.validerId(this.getClass().getName(), idChaudiere)) : ValiderId.messageErreur;
+		assert (Validation.validerId(this.getClass().getName(), idChaudiere)) : Validation.messageErreur;
 		this.idChaudiere = idChaudiere;
 	}
 

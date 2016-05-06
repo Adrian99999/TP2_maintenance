@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Calendar;
 
-public class ValiderId {
+public class Validation {
 	public static String messageErreur;
 
 	public static boolean validerId(String className, String id) {
@@ -36,7 +36,32 @@ public class ValiderId {
 				messageErreur = "Le format de l'id n'est pas valide";
 			}
 		}
-		System.out.println(messageErreur);
+		
 		return valide;
 	}
+	
+	public static boolean validerMtp(String mtp) {
+		int nbLettre = 0;
+		int nbspecialChar = 0;
+		int nbChiffre = 0;
+		int longueur = 0;
+		
+		if(Character.isUpperCase(mtp.charAt(0))){
+			assert (!Character.isUpperCase(mtp.charAt(0))) : "Le mot de passe n'est";
+			longueur = mtp.length();
+			nbLettre = mtp.replaceAll("\\p{Punct}", "").replaceAll("\\d","").length();
+			nbspecialChar = mtp.replaceAll("\\w", "").length();
+			nbChiffre = mtp.replaceAll("\\D", "").length();
+		}
+		//System.out.println(nbLettre + " " + nbspecialChar + " " + nbChiffre);
+		return ((longueur >= 8 && longueur <= 15) && (nbLettre >=2) && (nbspecialChar >=1) && (nbChiffre >=2));
+	}
+	
+	public static void main(String[] args) {
+		
+		boolean valide = Validation.validerId("jkjhhj.Superviseur", "Su2016d8e9");
+		//assert (valide == false) : "Erreur" ;
+		assert (valide == true) : "Erreur" ;
+	}
+
 }

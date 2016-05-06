@@ -1,6 +1,6 @@
 package employe;
 
-import utils.ValiderId;
+import utils.Validation;
 
 public class Service {
 	private String idService;
@@ -12,7 +12,7 @@ public class Service {
 	}
 
 	public void setIdService(String idService) {
-		assert (ValiderId.validerId(this.getClass().getName(), idService)) : ValiderId.messageErreur;
+		assert (Validation.validerId(this.getClass().getName(), idService)) : Validation.messageErreur;
 		this.idService = idService;
 	}
 

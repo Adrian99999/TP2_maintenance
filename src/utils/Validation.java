@@ -44,7 +44,12 @@ public class Validation {
 		int nbChiffre = 0;
 		int longueur = 0;
 		
+<<<<<<< HEAD
 		if((mtp.length() > 0) && Character.isUpperCase(mtp.charAt(0))){
+=======
+		if((mtp.length()>0) && Character.isUpperCase(mtp.charAt(0))){
+			assert (!Character.isUpperCase(mtp.charAt(0))) : "Le mot de passe n'est";
+>>>>>>> refs/heads/pierre
 			longueur = mtp.length();
 			nbLettre = mtp.replaceAll("\\p{Punct}", "").replaceAll("\\d","").length();
 			nbspecialChar = mtp.replaceAll("\\w", "").length();

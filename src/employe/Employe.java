@@ -7,6 +7,7 @@ public class Employe {
 	private String prenom;
 	private String nom;
 	private String mtp;
+	private String nomClasse="employe.Employe";
 
 	public Employe() {}
 	
@@ -67,4 +68,9 @@ public class Employe {
 		Employe emp = new Employe();
 		emp.setId("em201602kd");
 	}
+	
+	public String getNomClasse(){
+		return nomClasse;
+	}
+	
 }

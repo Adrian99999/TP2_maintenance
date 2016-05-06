@@ -29,10 +29,9 @@ public class Employe {
 	}
 
 	public void setId(String id) {
-		//assert (Validation.validerId(this.getClass().getName(), id)) : Validation.messageErreur;
-		boolean valide = Validation.validerId("Employe", "iffikfdif");
+		boolean valide = Validation.validerId(this.getClass().getName(), id); 
+		assert(valide == true) : "Le id doit être valide";
 		if(valide) {
-			assert (valide) : "L'id n'est pas valide";
 			this.id = id;
 		}
 	}
@@ -63,10 +62,8 @@ public class Employe {
 	
 	
 	public static void main(String[] args) {
+		Employe emp = new Employe();
+		emp.setId("Em201602kd");
 
-		//Employe em = new Employe("E2016aa11", "fsdf", "fsd", "fsdf");
-
-		// System.out.println(em.getId());
-			
 	}
 }

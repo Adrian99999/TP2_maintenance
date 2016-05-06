@@ -15,7 +15,6 @@ public class ControleurCapteur {
 		for(int i = 0; i < 3; i++) {
 			code++;
 			Capteur capteur = new Capteur("C"+code);
-			System.out.println("C"+code);
 			listeCapteur.put(capteur.getIdChaudiere(), capteur);
 		}
 	}
@@ -23,15 +22,12 @@ public class ControleurCapteur {
 	public Capteur getCapteur(String idChaudiere) {
 		Capteur capteur = null;
 		
-//TODO		if(validerIdChaudiere(idChaudiere)) {
+
 			capteur = listeCapteur.get(idChaudiere);
-		//}
+
 		
 		return capteur;
 	}
 	
-/*	public boolean validerIdChaudiere(String idChaudiere) {
 
-		return (idChaudiere.matches("") && idChaudiere.length() == 10);
-	}*/
 }

@@ -79,17 +79,18 @@ public class ServiceMessagerie {
 	}
 	
 	private boolean formatMsgValide(String[] messageSepare) {
+		assert((messageSepare.length == 4) || ((messageSepare.length >= 4) && messageSepare[2].matches("\\d{10}")) == true) : "Le format doit être valide";
 		return ((messageSepare.length == 4) || ((messageSepare.length >= 4) && messageSepare[2].matches("\\d{10}")));
 	}
 	
-	/*private boolean validerLogin(String nomUsager, String mtp) {
-
-		 // return gestionEmp.validerNomUsager(nomUsager) && gestionEmp.validerMtp(mtp);
-		return (nomUsager.startsWith("s") || nomUsager.startsWith("r") || nomUsager.startsWith("e"));
-	}*/
 	
 	public void addObservateur(InterfaceMessagerie obs) {
 		this.obs = obs;
+	}
+	
+	public static void main(String[] args) {
+		ServiceMessagerie ser = new ServiceMessagerie();
+		ser.traiterMessage("Em20163333 C#333ccc 4185555555 fdf dfdf");
 	}
 	
 }

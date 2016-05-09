@@ -63,7 +63,9 @@ public class Employe {
 	public void setMtp(String mtp) {
 		boolean mtpValide = validator.validerMtp(mtp);
 		//assert(mtpValide == true) : "Employe : Le mtp doit être valide";
-		this.mtp = mtp;
+		if(mtpValide){
+			this.mtp = mtp;
+		}
 	}
 	
 	

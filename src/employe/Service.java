@@ -30,5 +30,5 @@ public class Service {
 	public void setListeSousServices(SousService[] listeSousServices) {
 		this.listeSousServices = listeSousServices;
 	}
-
+	
 }

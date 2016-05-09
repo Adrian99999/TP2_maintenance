@@ -15,6 +15,10 @@ public class GestionEmploye {
 		this.genererListeEmploye();
 	}
 	
+	private void genererService() {
+		//Service service = new Service("Se2016");
+	}
+	
 	private void genererAbsence() {
 		Employe employe1 = new Employe("Em20161111", "Bob", "Langlois", "A!111aaa");
 		Employe employe2 = new Employe("Em20162222", "Tony", "Bobo", "B!222bbb");

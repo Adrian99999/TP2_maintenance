@@ -35,9 +35,9 @@ public class ServiceMessagerie {
 	public void traiterMessage(String texteSaisie) {
 		String[] converti = texteSaisie.split(" ");
 		if(formatMsgValide(converti)) {
-	
-			switch(converti[2]) {
-				case "VerfTemp":
+			String service =  converti[2].substring(0, 6);
+			switch(service) {
+				case "Se2016":
 					if((gestionEmp.validerLogin("employe.ResponsableChaudiere",converti[0], converti[1])) && (converti[0].startsWith("R"))) {
 						
 						Capteur capteurDemande = controlCapteur.getCapteur(converti[3]);
@@ -51,7 +51,7 @@ public class ServiceMessagerie {
 						}	
 					}
 					break;
-				case "VerfAbs":
+				case "So2016":
 					if((gestionEmp.validerLogin("employe.Superviseur",converti[0], converti[1])) && (converti[0].startsWith("S"))) {
 						
 						ArrayList<String> listeAbsence = gestionEmp.getListeAbsent();
@@ -72,7 +72,7 @@ public class ServiceMessagerie {
 		} 
 	}
 	
-	private boolean formatMsgValide(String[] messageSepare) {
+	public boolean formatMsgValide(String[] messageSepare) {
 		boolean formatValide = 
 				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
 				&& messageSepare[2].matches("\\d{10}"));

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="TP2_maintenance" default="all">
+  <description>
+    Génération de l'application
+  </description>
+  
+<!-- Definition des proprietes du projet -->
+  <property name="bin" location="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\bin"/>
+  <property name="src" location="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\src"/>
+  <property name="build" location="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\build\build"/>
+  <property name="lib" location="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\build\lib"/>
+  <property name="junit_path" value="junit-4.12.jar"/>
+	
+<!-- Definition du classpath du projet -->
+	<path id="projet.classpath">
+	<fileset dir="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\">
+	<include name="*.jar"/>
+	</fileset>
+	<pathelement location="E:\AEC Programmeur-analyste\GitDossier\TP2_maintenance\bin" />
+	</path>	
+	
+<!-- Initialisation du projet -->
+	
+  <target name="init" description="Initialisation">
+    <tstamp/>
+    <buildnumber file="numerobuild.txt" />
+    <echo message="Generation numero : ${build.number} du ${TODAY}"/>
+  </target>
+
+<!-- Compilation des Classes du projet -->
+
+	<target name="compil" depends="init" description="Compilation">
+    <javac srcdir="${src}" destdir="${bin}" 
+		debug="on"
+    	includeantruntime="false">
+       <classpath refid="C:\Program Files\Java\jdk1.8.0_72"/>
+    </javac>
+	<echo message="Compilation terminée"/>
+  </target>
+	
+<!-- Le Test des Classes du projet -->
+	
+ <target name="test" depends="compil" description="Executer tests avec JUnit">
+    <junit fork="yes" haltonerror="off" printsummary="yes" haltonfailure="off">
+      <formatter type="plain" usefile="false" />
+    	<test name="EmployeTest" />
+    	<classpath>
+    	       <path refid="projet.classpath" />
+    	       <path refid="projet.classpath"/>
+    	</classpath>
+    				<batchtest fork="yes">
+    	                <fileset dir="${src}" includes="*Test.java"/>
+    	            </batchtest>
+     	        </junit>
+  </target>
+	
+<!-- Execution de toutes les cibles du projet -->
+	
+  <target name="all" depends="init, compil, test" 
+    description="Generation complete">
+    <echo message="Generation complete."/>
+  </target>
+
+<!-- Fin du projet -->
+</project>

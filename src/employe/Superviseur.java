@@ -1,15 +1,18 @@
 package employe;
 
-import utils.Validation;
-
 public class Superviseur extends Employe {
+<<<<<<< HEAD
 	private String idSuperviseur;
 
 	public Superviseur() {
 
 	}
 
+=======
+	
+>>>>>>> refs/remotes/origin/dyden
 	public Superviseur(String id, String prenom, String nom, String mtp) {
+<<<<<<< HEAD
 		super(prenom, nom, mtp);
 		this.setId(id);
 	}
@@ -25,14 +28,21 @@ public class Superviseur extends Employe {
 		if (valide) {
 			this.idSuperviseur = id;
 		}
+=======
+		super(id, prenom, nom, mtp);
+>>>>>>> refs/remotes/origin/dyden
 	}
 
 	@Override
 	public String getNomClasse() {
 		return "Employe.Superviseur";
 	}
+<<<<<<< HEAD
 
 	private void consulterAbsents() {
 
 	}
+=======
+	
+>>>>>>> refs/remotes/origin/dyden
 }

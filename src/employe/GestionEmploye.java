@@ -41,8 +41,8 @@ public class GestionEmploye {
 		ResponsableChaudiere resp = new ResponsableChaudiere("Re2016cccc", "John", "Leclair", "R#111aaa");
 		Superviseur sup = new Superviseur("Su2016dddd", "Hugo", "Lajoie", "S%222bbb");
 		Employe emp = new Employe("Em2016eeee", "Tom", "Pom", "C#333ccc");
-		listeEmploye.put(resp.getIdResponsableChaudiere(), resp);
-		listeEmploye.put(sup.getIdSuperviseur(), sup);
+		listeEmploye.put(resp.getId(), resp);
+		listeEmploye.put(sup.getId(), sup);
 		listeEmploye.put(emp.getId(), emp);
 	}
 

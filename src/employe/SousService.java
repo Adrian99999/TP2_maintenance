@@ -13,6 +13,7 @@ public class SousService {
 	}
 
 	public SousService(String idSousService) {
+		validator = new Validation();
 		this.setIdSousService(idSousService);
 	}
 

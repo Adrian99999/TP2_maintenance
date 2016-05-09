@@ -13,6 +13,7 @@ public class Service {
 	}
 
 	public Service(String idService) {
+		validator = new Validation();
 		this.setIdService(idService);
 	}
 

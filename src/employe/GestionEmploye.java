@@ -9,14 +9,22 @@ public class GestionEmploye {
 	
 	private ArrayList<String> listeAbsent = new ArrayList<String> ();
 	private HashMap<String, Employe> listeEmploye = new HashMap<String, Employe>();
+	private HashMap<String, Service> listeService = new HashMap<String, Service>();
+	private HashMap<String, SousService> listSousService = new HashMap<String, SousService>();
+	private Service service;
+	private SousService sousService;
 	
 	public GestionEmploye() {
 		this.genererAbsence();
 		this.genererListeEmploye();
+		this.genererService();
 	}
 	
 	private void genererService() {
-		//Service service = new Service("Se2016");
+		Service service1 = new Service("Se2016Temp");
+		Service service2 = new Service("Se2016Absc");
+		SousService sousService1 = new SousService("So2016jour");
+		SousService sousService2 = new SousService("So2016soir");
 	}
 	
 	private void genererAbsence() {
@@ -58,11 +66,20 @@ public class GestionEmploye {
 			}
 		}
 		return loginValide;
-	}
+	}	
 	
+	public Service getService() {
+		return service;
+	}
+
+	public SousService getSousService() {
+		return sousService;
+	}
+
 	public static void main(String[] args) {
 		GestionEmploye gestEmp = new GestionEmploye();
 		gestEmp.validerLogin("employe.Superviseur", "Su20161234", "A!12nb12mn");
+		
 	}
 		
 }

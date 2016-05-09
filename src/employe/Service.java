@@ -1,7 +1,5 @@
 package employe;
 
-import utils.Validation;
-
 public class Service {
 	private String idService;
 	private String nomService;
@@ -30,5 +28,5 @@ public class Service {
 	public void setListeSousServices(SousService[] listeSousServices) {
 		this.listeSousServices = listeSousServices;
 	}
-	
+
 }

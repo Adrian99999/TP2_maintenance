@@ -78,7 +78,12 @@ public class ValidationTest {
 		assertEquals((vd.validerId(emp.getNomClasse(),"em2016@bcd")),false);
 	}
 	
-
+	@Test
+	public void testValiderIdJeux11() {
+		assertEquals((vd.validerId(emp.getNomClasse(),"     ")),false);
+	}
+	
+	
 	@Test
 	public void testValiderMtpJeux1() {
 		assertEquals(vd.validerMtp("Rhd34Mf&"),true);

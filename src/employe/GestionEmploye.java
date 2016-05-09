@@ -77,8 +77,7 @@ public class GestionEmploye {
 
 	public static void main(String[] args) {
 		GestionEmploye gestEmp = new GestionEmploye();
-		gestEmp.validerLogin("employe.Superviseur", "Su20161234", "A!12nb12mn");
-		
+		gestEmp.validerLogin("employe.Superviseur", "Su20161234", "A!12nb12mn");		
 	}
 		
 }

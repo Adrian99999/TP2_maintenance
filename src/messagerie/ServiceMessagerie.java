@@ -82,7 +82,6 @@ public class ServiceMessagerie {
 		boolean formatValide = 
 				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
 				&& messageSepare[2].matches("\\d{10}"));
-		System.out.println(formatValide);
 		//assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
 		return formatValide;
 	}

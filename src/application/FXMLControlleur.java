@@ -30,6 +30,7 @@ public class FXMLControlleur implements Initializable, InterfaceMessagerie{
     private ServiceMessagerie serviceMessage = new ServiceMessagerie();
   
     void verifierSiVide(){
+    	txtRecu.setText("");
     	if (txtEnvoi.getLength()!=0){
     		serviceMessage.traiterMessage(txtEnvoi.getText());
     	}

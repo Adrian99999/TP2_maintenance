@@ -27,7 +27,16 @@ public class ServiceMessagerie {
 				infosRecu = (String[]) infos.get(0);
 				@SuppressWarnings("unchecked")
 				ArrayList<String> listeAbsent = (ArrayList<String>) infos.get(1);
-				return new Absence(infosRecu[0], infosRecu[3], listeAbsent);			
+				String periode = null;
+				switch(infosRecu[3]) {
+					case "So2016jour":
+						periode = "jour";
+						break;
+					case "So2016soir":
+						periode = "soir";
+						break;					
+				}
+				return new Absence(infosRecu[0], periode, listeAbsent);			
 		}
 		return null;
 	}
@@ -35,8 +44,8 @@ public class ServiceMessagerie {
 	public void traiterMessage(String texteSaisie) {
 		String[] converti = texteSaisie.split(" ");
 		
-		if(formatMsgValide(converti)) {		
-			if(converti[2].equals(gestionEmp.getService().getIdService())) {
+		if(formatMsgValide(converti)) {	
+			if(converti[2].equals(gestionEmp.getListeService().get("Se2016Temp").getIdService())) {
 				if((gestionEmp.validerLogin("employe.ResponsableChaudiere",converti[0], converti[1])) && (converti[0].startsWith("R"))) {
 					
 					Capteur capteurDemande = controlCapteur.getCapteur(converti[3]);
@@ -50,7 +59,7 @@ public class ServiceMessagerie {
 					}	
 				}
 			}
-			else if(converti[2].equals(gestionEmp.getSousService().getIdSousService())) {
+			else if(converti[2].equals(gestionEmp.getListeService().get("Se2016Absc").getIdService())) {
 					if((gestionEmp.validerLogin("employe.Superviseur",converti[0], converti[1])) && (converti[0].startsWith("S"))) {
 						
 						ArrayList<String> listeAbsence = gestionEmp.getListeAbsent();
@@ -73,7 +82,8 @@ public class ServiceMessagerie {
 		boolean formatValide = 
 				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
 				&& messageSepare[2].matches("\\d{10}"));
-		assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
+		System.out.println(formatValide);
+		//assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
 		return formatValide;
 	}
 	

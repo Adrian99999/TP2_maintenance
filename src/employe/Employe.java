@@ -45,6 +45,7 @@ public class Employe {
 
 	public void setId(String id) {
 		boolean valide = validator.validerId(this.getNomClasse(), id); 
+		System.out.println(this.getNomClasse());
 		//assert(valide == true) : "Le id doit être valide";
 		if(valide) {
 			this.id = id;

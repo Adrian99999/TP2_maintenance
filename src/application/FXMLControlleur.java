@@ -3,8 +3,6 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import capteur.Capteur;
-import capteur.ControleurCapteur;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -31,7 +29,7 @@ public class FXMLControlleur implements Initializable, InterfaceMessagerie{
     private ServiceMessagerie serviceMessage = new ServiceMessagerie();
   
     void verifierSiVide(){
-    	txtRecu.setText("");
+    	
     	if (txtEnvoi.getLength()!=0){
     		serviceMessage.traiterMessage(txtEnvoi.getText());
     	}
@@ -41,6 +39,7 @@ public class FXMLControlleur implements Initializable, InterfaceMessagerie{
 	public void initialize(URL location, ResourceBundle resources) {
 		serviceMessage.addObservateur(this);
 		btnEnvoyer.setOnAction(event -> {
+			txtRecu.setText("");
 			verifierSiVide();
 		  });
 	}
@@ -48,6 +47,6 @@ public class FXMLControlleur implements Initializable, InterfaceMessagerie{
 	@Override
 	public void afficherMessage(String message) {
 		txtRecu.setText(message);
-		
+		txtEnvoi.setText("");
 	}
 }

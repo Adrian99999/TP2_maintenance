@@ -7,6 +7,10 @@ public class Service {
 	private String nomService;
 	private SousService[] listeSousServices;
 
+	public Service(String idService) {
+		this.setIdService(idService);
+	}
+	
 	public String getIdService() {
 		return idService;
 	}
@@ -30,5 +34,4 @@ public class Service {
 	public void setListeSousServices(SousService[] listeSousServices) {
 		this.listeSousServices = listeSousServices;
 	}
-	
 }

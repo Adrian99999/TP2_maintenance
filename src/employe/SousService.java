@@ -6,6 +6,10 @@ public class SousService {
 	private String idSousService;
 	private String nomSousService;
 	private Employe[] listeEmploye;
+	
+	public SousService(String idSousService) {
+		this.setIdSousService(idSousService);
+	}
 
 	public String getIdSousService() {
 		return idSousService;

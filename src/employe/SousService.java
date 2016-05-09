@@ -1,11 +1,17 @@
 package employe;
 
-import utils.Validation;
-
 public class SousService {
 	private String idSousService;
 	private String nomSousService;
 	private Employe[] listeEmploye;
+
+	public SousService() {
+
+	}
+
+	public SousService(String idSousService) {
+		this.setIdSousService(idSousService);
+	}
 
 	public String getIdSousService() {
 		return idSousService;

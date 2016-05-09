@@ -13,7 +13,7 @@ public class ControleurCapteur {
 	}
 	
 	private void genererListeCapteurs() {
-		int code = 1230;
+		int code = 1229;
 		for(int i = 0; i < 3; i++) {
 			code++;
 			Capteur capteur = new Capteur("Ch2016"+code);
@@ -24,7 +24,7 @@ public class ControleurCapteur {
 	public Capteur getCapteur(String idChaudiere) {
 		Validation validator = new Validation();
 		boolean idValide = validator.validerId(Capteur.getNomClasse(), idChaudiere);
-		assert(idValide == false) : "Le id doit être invalide";
+		//assert(idValide == false) : "Le id doit être invalide";
 		
 		Capteur capteur = null;	
 		capteur = listeCapteur.get(idChaudiere);

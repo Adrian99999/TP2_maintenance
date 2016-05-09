@@ -21,6 +21,17 @@ public class Employe {
 		setMtp(mtp);
 	}
 	
+	public Employe(String prenom, String nom, String mtp) {
+		validator = new Validation();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.setMtp(mtp);
+	}
+	
+	public Employe(String id) {
+		this.id = id;
+	}
+	
 	private void envoyerMsg() {
 	}
 

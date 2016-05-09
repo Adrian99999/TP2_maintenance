@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.After;
@@ -21,6 +22,7 @@ public class SousServiceTest {
 	public void setUp() throws Exception {
 		ss1 = new SousService();
 		ss2 = new SousService();
+		vd = mock(Validation.class);
 		when(vd.validerId("employe.SousService", "So2016aa11")).thenReturn(true);
 		when(vd.validerId("employe.SousService", "Ss2015aa")).thenReturn(false);
 		ss1.setIdSousService("So2016aa11");

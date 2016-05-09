@@ -1,11 +1,15 @@
 package employe;
 
+import utils.Validation;
+
 public class Service {
 	private String idService;
 	private String nomService;
 	private SousService[] listeSousServices;
+	private Validation validator;
 
 	public Service() {
+		validator = new Validation();
 	}
 
 	public Service(String idService) {
@@ -17,7 +21,15 @@ public class Service {
 	}
 
 	public void setIdService(String idService) {
-		this.idService = idService;
+		boolean valide = validator.validerId(this.getNomClasse(), idService);
+		// assert(valide == true) : "Le id doit �tre valide";
+		if (valide) {
+			this.idService = idService;
+		}
+	}
+
+	public String getNomClasse() {
+		return this.getClass().getName();
 	}
 
 	public String getNomService() {

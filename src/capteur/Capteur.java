@@ -15,10 +15,6 @@ public class Capteur {
 		this.setIdChaudiere(idChaudiere);
 	}
 
-	private void envoyerAlert() {
-
-	}
-
 	public String getTemps() {
 		return temps;
 	}

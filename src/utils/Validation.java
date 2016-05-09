@@ -15,7 +15,7 @@ public class Validation {
 		if (arrayId.length != 10) {
 			messageErreur = "La longueur de l'id doit Ãªtre de 10 caractÃ¨res";
 		} else {
-			if (id.matches("^[A-Za-z]{2}+[0-9]{4}+[A-Za-z0-9]{4}")) {
+			if (id.matches("^[A-Za-z]{2}+[0-9]{4}+[A-Za-z]{4}")) {
 				char[] arrayClassName = classeNom.toCharArray();
 				if (arrayClassName[0] == arrayId[0] && arrayClassName[1] == arrayId[1]) {
 					String anneeString = id.substring(2, 6);
@@ -34,7 +34,7 @@ public class Validation {
 				messageErreur = "Le format de l'id n'est pas valide";
 			}
 		}
-		//assert (valide == true) : "Validation: le id doit être invalide" ;
+		assert (valide == true) : "Validation: le id doit être invalide" ;
 		return valide;
 	}
 	
@@ -60,8 +60,7 @@ public class Validation {
 	public static void main(String[] args) {
 		Validation validator = new Validation();		
 		validator.validerId("employe.Superviseur", "Su2016d8e9");
-		validator.validerMtp("A99!bn9899nfdnf");
-		
+		validator.validerMtp("A99!bn9899nfdnf");	
 	}
 	
 }

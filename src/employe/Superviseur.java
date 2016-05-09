@@ -5,7 +5,7 @@ public class Superviseur extends Employe {
 	public Superviseur() {}
 
 	public Superviseur(String id, String prenom, String nom, String mtp) {
-		super(prenom, nom, mtp);
+		super(id, prenom, nom, mtp);
 	}
 
 	@Override

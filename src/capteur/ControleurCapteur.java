@@ -13,12 +13,14 @@ public class ControleurCapteur {
 	}
 	
 	private void genererListeCapteurs() {
-		int code = 1229;
-		for(int i = 0; i < 3; i++) {
-			code++;
-			Capteur capteur = new Capteur("Ch2016"+code);
-			listeCapteur.put(capteur.getIdChaudiere(), capteur);
-		}
+		
+		Capteur capteur1 = new Capteur("Ch2016aaaa");
+		Capteur capteur2 = new Capteur("Ch2016bbbb");
+		Capteur capteur3 = new Capteur("Ch2016cccc");
+		listeCapteur.put(capteur1.getIdChaudiere(), capteur1);
+		listeCapteur.put(capteur2.getIdChaudiere(), capteur2);
+		listeCapteur.put(capteur3.getIdChaudiere(), capteur3);
+		
 	}
 	
 	public Capteur getCapteur(String idChaudiere) {

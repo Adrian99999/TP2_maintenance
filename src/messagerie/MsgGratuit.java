@@ -7,7 +7,6 @@ public class MsgGratuit implements Message{
 	private String telephoneAmi;
 	private String textMessage;
 	
-
 	@Override
 	public String creeMSG() {
 		return "";

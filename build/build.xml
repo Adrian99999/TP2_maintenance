@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="TestAnt" default="all">
+  <description>
+    Génération de l'application
+  </description>
+  
+<!-- Definition des proprietes du projet -->
+  <property name="bin" location="e:\repo_git\TP2_maintenance\bin"/>
+	<property name="bintests" location="e:\repo_git\TP2_maintenance\bin\tests"/>
+  <property name="src" location="e:\repo_git\TP2_maintenance\src"/>
+  <property name="build" location="e:\repo_git\TP2_maintenance\build"/>
+  <property name="lib" location="e:\repo_git\TP2_maintenance\lib"/>
+  <property name="srctests" location="e:\repo_git\TP2_maintenance\src\tests"/>
+	
+  <property name="junit_path" value="junit.jar"/>
+	
+<!-- Definition du classpath du projet -->
+	<path id="projet.classpath">
+	<fileset dir="e:\repo_git\TP2_maintenance\">
+	<include name="*.jar"/>
+	</fileset>
+	<pathelement location="e:\repo_git\TP2_maintenance\bin" />
+	</path>	
+
+<!-- Initialisation du projet -->
+	
+  <target name="init" description="Initialisation">
+    <tstamp/>
+    <buildnumber file="numerobuild.txt" />
+    <echo message="Generation numero : ${build.number} du ${TODAY}"/>
+  </target>
+
+<!-- Compilation des Classes du projet -->
+
+	<target name="compil" depends="init" description="Compilation">
+    <javac srcdir="${src}" destdir="${bin}" 
+		debug="on"
+    	includeantruntime="false">
+       <classpath refid="C:\Program Files\Java\jdk1.8.0_66"/>
+    </javac>
+  </target>
+	
+<!-- Le Test des Classes du projet -->
+	
+ <target name="test" depends="compil" description="Executer tests avec JUnit">
+    <junit fork="yes" haltonerror="off" printsummary="yes" haltonfailure="off">
+      <formatter type="plain" usefile="false" />
+    	<test name="TP2_maintenance" />
+    	<classpath>
+    	       <path refid="projet.classpath"/>
+    	       <path refid="projet.classpath"/>
+    	</classpath>
+    				<batchtest fork="yes">
+    	                <fileset dir="${srctests}" includes="*Test.java"/>
+    	            </batchtest>
+     	        </junit>
+  </target>
+	
+<!-- Execution de toutes les cibles du projet -->
+	
+  <target name="all" depends="init, compil, test" 
+    description="Generation complete">
+    <echo message="Generation complete."/>
+  </target>
+
+<!-- Fin du projet -->
+</project>

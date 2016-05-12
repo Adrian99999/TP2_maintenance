@@ -26,7 +26,7 @@ public class ControleurCapteur {
 	public Capteur getCapteur(String idChaudiere) {
 		Validation validator = new Validation();
 		boolean idValide = validator.validerId(Capteur.getNomClasse(), idChaudiere);
-		//assert(idValide == false) : "Le id doit être invalide";
+		assert(idValide == true) : "Le id doit être valide";
 		
 		Capteur capteur = null;	
 		capteur = listeCapteur.get(idChaudiere);

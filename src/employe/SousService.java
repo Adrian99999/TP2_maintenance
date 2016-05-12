@@ -25,7 +25,7 @@ public class SousService {
 	public void setIdSousService(String idSousService) {
 
 		boolean valide = validator.validerId(this.getNomClasse(), idSousService);
-		// assert(valide == true) : "Le id doit �tre valide";
+		assert(valide == true) : "Le id doit �tre valide";
 		if (valide) {
 			this.idSousService = idSousService;
 		}

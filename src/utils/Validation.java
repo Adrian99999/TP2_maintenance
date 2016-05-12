@@ -34,7 +34,7 @@ public class Validation {
 				messageErreur = "Le format de l'id n'est pas valide";
 			}
 		}
-		assert (valide == true) : "Validation: le id doit être invalide" ;
+		//assert (valide == true) : "Validation: le id doit être invalide" ;
 		return valide;
 	}
 	

@@ -23,7 +23,7 @@ public class Service {
 
 	public void setIdService(String idService) {
 		boolean valide = validator.validerId(this.getNomClasse(), idService);
-		// assert(valide == true) : "Le id doit �tre valide";
+		assert(valide == true) : "Le id doit �tre valide";
 		if (valide) {
 			this.idService = idService;
 		}

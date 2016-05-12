@@ -61,7 +61,6 @@ public class ServiceMessagerie {
 			}
 			else if(converti[2].equals(gestionEmp.getListeService().get("Se2016Absc").getIdService())) {
 					if((gestionEmp.validerLogin("employe.Superviseur",converti[0], converti[1])) && (converti[0].startsWith("S"))) {
-						System.out.println("entre");
 						ArrayList<String> listeAbsence = gestionEmp.getListeAbsent();
 						ArrayList<Object> liste = new ArrayList<>();
 						liste.add(converti);
@@ -82,7 +81,7 @@ public class ServiceMessagerie {
 		boolean formatValide = 
 				(messageSepare.length == 4) || ((messageSepare.length >= 4) 
 				&& messageSepare[2].matches("\\d{10}"));
-		//assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
+		assert(formatValide == true) : "ServiceMessagerie : Le format doit être valide";
 		return formatValide;
 	}
 	

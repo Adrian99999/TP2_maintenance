@@ -60,8 +60,8 @@ public class GestionEmploye {
 		boolean idValide = validateur.validerId(nomClasse, idUsager);
 		boolean mtpValide = validateur.validerMtp(mtp);
 	
-		//assert(idValide == true) : "GestionEmploye: L'id doit être valide";
-		//assert(mtpValide == true) : "GestionEmploye: Le mtp doit être valide";
+		assert(idValide == true) : "GestionEmploye: L'id doit être valide";
+		assert(mtpValide == true) : "GestionEmploye: Le mtp doit être valide";
 		
 		if(idValide && mtpValide) {
 			if(listeEmploye.get(idUsager) != null) {

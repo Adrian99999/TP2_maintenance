@@ -31,8 +31,7 @@ public class Employe {
 
 	public void setId(String id) {
 		boolean valide = validator.validerId(this.getNomClasse(), id); 
-		System.out.println(this.getNomClasse());
-		//assert(valide == true) : "Le id doit être valide";
+		assert(valide == true) : "Le id doit être valide";
 		if(valide) {
 			this.id = id;
 		}
@@ -60,13 +59,12 @@ public class Employe {
 
 	public void setMtp(String mtp) {
 		boolean mtpValide = validator.validerMtp(mtp);
-		//assert(mtpValide == true) : "Employe : Le mtp doit être valide";
+		assert(mtpValide == true) : "Employe : Le mtp doit être valide";
 		if(mtpValide){
 			this.mtp = mtp;
 		}
 	}
-	
-	
+
 	public static void main(String[] args) {
 		Employe emp = new Employe();
 		emp.setId("em201602kd");
